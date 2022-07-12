@@ -46,13 +46,11 @@ export default {
             mask: "###.###.###.-##"
         };
     },
-
     created() {
         this.users = axios.get("/api/users/")
             .then((res) => this.users = res.data)
             .then((json) => {
                 this.users = json.users
-
             })
     },
     methods: {
@@ -71,12 +69,10 @@ export default {
     justify-content: center;
     align-items: flex-end;
 }
-
 #UserCpf {
     margin-left: 17%;
     margin-top: 35%;
 }
-
 #UserName {
     margin-left: -258%;
     margin-top: 15%;
@@ -84,18 +80,15 @@ export default {
     display: block;
     height: 47px;
 }
-
 #nome {
     margin-left: 107%;
     margin-top: -7%;
     padding-left: 8%;
 }
-
 hr {
     margin-left: 13%;
     margin-right: 18%;
 }
-
 .pagination {
     cursor: pointer;
     position: static;
@@ -107,9 +100,6 @@ hr {
     font-size: 22px;
 }
 
-.pagination:hover {
-    transform: scale(1.1);
-}
 
 #icon {
     margin-left: 308%;
