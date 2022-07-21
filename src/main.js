@@ -1,15 +1,14 @@
 import Vue from 'vue'
 import App from './App.vue'
+import  axios  from 'axios'
 import router from './router'
 import { createServer, Model } from 'miragejs'
+import VueMask from 'v-mask';
 import '@fortawesome/fontawesome-free/css/all.css'
 import JwPagination from 'jw-vue-pagination';
 
-import VueMask from 'v-mask';
-Vue.use(VueMask)  
-
 Vue.component('jw-pagination', JwPagination);
-
+Vue.use(VueMask)    
 
 createServer({
   models: {
