@@ -1,7 +1,7 @@
 <template>
   <section class="information-modal" v-show="modal">
     <nav class="navbar-modal">
-      <span v-on:click="closeModal" class="close">X</span>
+    <i v-on:click="closeModal" id="close" class="fa fa-window-close" aria-hidden="true"></i>
        <h4>Detalhes do usuário</h4>
 
     </nav>
@@ -110,14 +110,16 @@ export default {
   flex-direction: column;
 }
 
-.close {
-  position: absolute;
-  right: 20px;
-  border: none;
-  background-color: transparent;
+#close {
+position: absolute;
+    right: 11px;
+    border: none;
+    background-color: transparent;
+    height: 32px;
+    font-size: 39px;
 }
 
-.close:hover {
+#close:hover {
   cursor: pointer;
   transform: translateZ(0px) scale(1.2);
 }

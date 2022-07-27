@@ -1,5 +1,6 @@
 <template>
   <div class="form-container">
+    <MsgCancel v-show="msgCancel"/>  
     <NavList />
     <br>
     <HeaderList />
@@ -68,12 +69,11 @@
         <div class="btns">
           <hr>
           <br>
-          <button type="submit" id="concluir" @click="userCreate(form)"> Salvar </button>
-
-          <button id="cancelar">Cancelar</button>
+          <button id="concluir" @click="userCreate(form)">Salvar</button>
+          <router-link to=""><button id="cancelar" @click="cancelar">Cancelar</button></router-link>
         </div>
       </form>
-
+    
     </div>
   </div>
 </template>
@@ -82,14 +82,19 @@
 import NavList from "../components/NavList.vue"
 import HeaderList from "../components/HeaderList.vue"
 import axios from 'axios'
+import msgCancel from "../components/msgCancel.vue"
+import MsgCancel from "../components/msgCancel.vue"
 
 export default {
   components: {
     NavList,
     HeaderList,
-  },
+    msgCancel,
+    MsgCancel
+},
   data() {
     return {
+      msgCancel:false,
 
       form: {
         name: "",
@@ -103,7 +108,11 @@ export default {
   },
 
   methods: {
-
+    cancelar(){
+      if(msgCancel == false){
+        msgCancel
+      }
+    },
     cpfValidate() {
       let firstDigitAfterDash = 0
       let arrayCpf = Array.from(this.form.cpf.replaceAll('.', '').replace('-', ''))
