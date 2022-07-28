@@ -1,8 +1,8 @@
 <template>
   <section class="information-modal" v-show="modal">
     <nav class="navbar-modal">
-    <i v-on:click="closeModal" id="close" class="fa fa-window-close" aria-hidden="true"></i>
-       <h4>Detalhes do usuário</h4>
+      <i v-on:click="closeModal" id="close" class="fa fa-window-close" aria-hidden="true"></i>
+      <h4>Detalhes do usuário</h4>
 
     </nav>
 
@@ -19,7 +19,7 @@
         </div>
         <div class="information-content">
           <label>Nascimento</label>
-          <span>{{ User_Prop.birthDate  }}</span>
+          <span>{{ User_Prop.birthDate }}</span>
         </div>
       </div>
 
@@ -69,8 +69,8 @@ export default {
 </script>
 <style scoped>
 .information-modal {
-  width: 612px;
-  height: 334px; 
+  width: calc(55% - 158px);
+  height: calc(70% - 109px);
   flex-direction: column;
   border-radius: 10px;
   background-color: white;
@@ -91,7 +91,7 @@ export default {
 }
 
 .contain-all-information {
-  margin: 20px;
+  margin: 25px;
   margin-top: 10px;
   padding: 40px;
   display: flex;
@@ -111,12 +111,12 @@ export default {
 }
 
 #close {
-position: absolute;
-    right: 11px;
-    border: none;
-    background-color: transparent;
-    height: 32px;
-    font-size: 39px;
+  position: absolute;
+  right: 11px;
+  border: none;
+  background-color: transparent;
+  height: 32px;
+  font-size: 39px;
 }
 
 #close:hover {

@@ -154,16 +154,12 @@ export default {
         catch (error) {
           console.log(error);
         }
-
       } else {
         alert("CPF INVALIDO")
       }
-
     }
   }
 }
-
-
 </script>
 
 <style scoped>
