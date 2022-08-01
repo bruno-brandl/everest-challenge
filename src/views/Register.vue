@@ -1,6 +1,6 @@
 <template>
   <div class="form-container">
-    <MsgCancel v-show="msgCancel"/>  
+    <MsgCancel v-show="msgCancel" />
     <NavList />
     <br>
     <HeaderList />
@@ -12,15 +12,12 @@
         <div id="texts">
 
           <h2 class="title">Dados de contato</h2>
-          <br />
           <p class="text">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Orci,
-            volutpat in <br />iaculis nec nisl tellus.
+            volutpat in iaculis nec nisl tellus.
           </p>
-          <br />
         </div>
         <label>Nome completo</label>
-        <br />
         <input type="text" v-model="form.name" autocomplete="on" placeholder='Seu nome' class="bigInput" />
         <div id="labelEmail">
           <label>E-mail</label>
@@ -29,8 +26,9 @@
         <div>
           <div id="email">
 
-            <input v-model="form.email" autocomplete="on" placeholder="Seu_Email@email.com" type="text" class="mediumInput" />
-            
+            <input v-model="form.email" autocomplete="on" placeholder="Seu_Email@email.com" type="text"
+              class="mediumInput" />
+
 
             <input type="text" v-model="form.confirmEmail" autocomplete="on" placeholder="confirme seu email"
               class="mediumInput paddingInput" />
@@ -42,21 +40,18 @@
           <label>Celular</label>
         </div>
         <div id="numbers">
-          <input v-model="form.cpf" v-mask="'###.###.###-##'" autocomplete="on" maxlength="14" placeholder='000.000.000-00' type="text"
-            class="mediumInput" />
-          <input v-mask="'(##) #####-#####'" placeholder="(00) 111111-22222"  type="text" v-model="form.phone"
+          <input v-model="form.cpf" v-mask="'###.###.###-##'" autocomplete="on" maxlength="14"
+            placeholder='000.000.000-00' type="text" class="mediumInput" />
+          <input v-mask="'(##) #####-#####'" placeholder="(00) 111111-22222" type="text" v-model="form.phone"
             autocomplete="on" maxlength="15" minlength="14" class="mediumInput paddingInput" />
         </div>
         <label>Data de nascimento</label>
-        <br />
         <input v-model="form.birthDate" type="date" class="mediumInput" />
         <p class="bottonText">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit
         </p>
-        <br />
         <p class="bottonText">Mattis semper odio preretium vestibulum nulla</p>
-        <br />
-        <div id="sms">
+          <div id="sms">
           <input type="checkbox" />
           <label>Email e SMS</label>
         </div>
@@ -70,10 +65,10 @@
           <hr>
           <br>
           <button id="concluir" @click="userCreate(form)">Salvar</button>
-          <router-link to=""><button id="cancelar" @click="cancelar">Cancelar</button></router-link>
+        <button id="cancelar" @click="cancelar">Cancelar</button>
         </div>
       </form>
-    
+
     </div>
   </div>
 </template>
@@ -91,10 +86,10 @@ export default {
     HeaderList,
     msgCancel,
     MsgCancel
-},
+  },
   data() {
     return {
-      msgCancel:false,
+      msgCancel: false,
 
       form: {
         name: "",
@@ -108,10 +103,10 @@ export default {
   },
 
   methods: {
-    cancelar(){
-      if(msgCancel == false){
-        msgCancel
-      }
+    cancelar() {
+  if(!msgCancel){
+    msfCancel
+  }
     },
     cpfValidate() {
       let firstDigitAfterDash = 0
@@ -133,7 +128,7 @@ export default {
       return secondDigitAfterDash === Number.parseInt(arrayCpf[arrayCpf.length - 1])
     },
     async userCreate(form) {
-      if (form.name == "" ) {
+      if (form.name == "") {
         alert("Preencha Seu Nome")
       } else if (form.email == "") {
         alert("Preencha seu Email")
@@ -143,9 +138,9 @@ export default {
         alert("Preencha Seu CPF")
       } else if (form.phone == "") {
         alert("Preencha Seu Telefone")
-      } else if(form.birthDate == ""){ 
-         alert("Preesncha sua Data de Nascimento")
-      }else if (this.cpfValidate() ) {
+      } else if (form.birthDate == "") {
+        alert("Preesncha sua Data de Nascimento")
+      } else if (this.cpfValidate()) {
         try {
           const newUser = { fullname: form.name, email: form.email, confirmEmail: form.confirmEmail, phone: form.phone, birthDate: form.birthDate, cpf: form.cpf }
           const response = await axios.post("/api/users", newUser)

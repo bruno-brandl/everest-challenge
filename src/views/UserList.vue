@@ -82,7 +82,7 @@ export default {
     },
     ModalOpen(item) {
       this.User_Prop = item
-      if(this.openModal == false){
+     if(!this.openModal){
       this.openModal = true
       }
     },
