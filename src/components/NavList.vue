@@ -2,7 +2,7 @@
     <header>
         <div class="navbar">
             <div class="nav-container">
-                 <i class="fa fa-arrow-left" id="custom" aria-hidden="true"></i>
+                <i class="fa fa-arrow-left" id="custom" aria-hidden="true"></i>
                 <h3 class="text">Cadastro de Usuario</h3>
             </div>
         </div>
@@ -20,7 +20,7 @@
 
 .text {
     cursor: pointer;
-    margin-left: 657px;
+    margin-left: 39vw;
     margin-top: 15px;
 }
 
